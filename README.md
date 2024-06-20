@@ -120,8 +120,10 @@ python3 Decrypter.py
 5.	Executable File: Convert the script into an executable file that can run in the background and undetectable.
    
 # Browser History Gathering
-* Function: The gather_browser_history function attempts to access the SQLite database used by browsers like Chrome to store browsing history.
-* Implementation: This function reads the database and writes the history to a file. This will only work if the browser is not running, as the database will be locked otherwise.
+
+The gather_browser_history function is trying to get the browser history by using the tasklist command. However, the tasklist command does not provide browser history. It only lists the currently running tasks or services in your system. If you want to gather browser history, you would need to access the SQLite databases that browsers like Chrome and Firefox use to store history data. This is a complex task and involves understanding the database schema used by each browser. Also, it's important to note that accessing browser history without user consent can be a violation of privacy.
+
+To access chrome's history (this will only work if Chrome is not currently running, as the database will be locked otherwise) this code opens the history SQLite database that Chrome uses to store browsing history and writes each URL to a file. Note that this is a simplified example and may not work in all cases, especially if the user has multiple Chrome profiles or if the database schema changes in a future Chrome update.
 
 # Contribution
 Feel free to contribute by submitting pull requests. Ensure all contributions align with the educational purpose and ethical use of the software.
