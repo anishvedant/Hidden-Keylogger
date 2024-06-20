@@ -118,6 +118,7 @@ python3 Decrypter.py
 3.	Stealth Mode: Enhance stealth capabilities to avoid detection by antivirus software.
 4.	Enhanced Keystroke Logging: Improve handling of special key combinations and numeric numpad entries.
 5.	Executable File: Convert the script into an executable file that can run in the background and undetectable.
+6.	Cross-Platform Support: Extend compatibility to other operating systems like macOS and Linux.
    
 # Browser History Gathering
 
