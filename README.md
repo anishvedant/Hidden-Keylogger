@@ -118,15 +118,15 @@ https://github.com/anishvedant/Hidden-Keylogger/assets/73393671/31cec229-07b6-42
 | ***Clipboard data*** |
 
 
-| ![Database is locked](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Database%20is%20locked%2C%20if%20the%20browser%20is%20locked.png)
+| ![Database is locked](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Database%20is%20locked%2C%20if%20the%20browser%20is%20running.png)
 |:--:| 
 | ***Database is locked*** |
 
-| ![Enc are encrypted files](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Enc%20are%20encrypted%20files.png)
+| ![Enc are encrypted files](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Encrypted%20files%20after%20encryption.png)
 |:--:| 
 | ***Encrypted files (enc) are created after encryption*** |
 
-| ![Files are encrypted and new files are created](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Files%20are%20encrypted%20and%20new%20files%20are%20created.png)
+| ![Files are encrypted and new files are created](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Encrypted%20files%20after%20encryption)
 |:--:| 
 | ***Files are encrypted and new files are created*** |
 
