@@ -126,7 +126,7 @@ https://github.com/anishvedant/Hidden-Keylogger/assets/73393671/31cec229-07b6-42
 |:--:| 
 | ***Encrypted files (enc) are created after encryption*** |
 
-| ![Files are encrypted and new files are created](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Encrypted%20files%20after%20encryption)
+| ![Files are encrypted and new files are created](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Files%20are%20encrypted%20and%20new%20files%20are%20created.png)
 |:--:| 
 | ***Files are encrypted and new files are created*** |
 
