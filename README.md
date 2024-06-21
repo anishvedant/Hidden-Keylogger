@@ -104,6 +104,45 @@ After the encrypted files are generated, run the decrypter program.
 python3 Decrypter.py
 ```
 
+# Screenshots
+
+https://github.com/anishvedant/Hidden-Keylogger/assets/73393671/31cec229-07b6-42c2-81c5-27d21ce47a98
+
+| ![Screenshots/Browser history & Connected Devices](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Browser%20history%20%26%20Connected%20Devices.png)
+|:--:| 
+| ***Browser History & Connected Devices*** |
+
+
+| ![Clipboard Data](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Clipboard%20Data.png)
+|:--:| 
+| ***Clipboard data*** |
+
+
+| ![Database is locked](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Database%20is%20locked%2C%20if%20the%20browser%20is%20locked.png)
+|:--:| 
+| ***Database is locked*** |
+
+| ![Enc are encrypted files](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Enc%20are%20encrypted%20files.png)
+|:--:| 
+| ***Encrypted files (enc) are created after encryption*** |
+
+| ![Files are encrypted and new files are created](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Files%20are%20encrypted%20and%20new%20files%20are%20created.png)
+|:--:| 
+| ***Files are encrypted and new files are created*** |
+
+| ![Files created](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Files%20Created.png)
+|:--:| 
+| ***Files Created*** |
+
+| ![Keylogger capturing only alphabets and capturing all keys](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/Keylogger%20with%20only%20alphabets%20and%20one%20with%20all%20keys%20captured.png)
+|:--:| 
+| ***Keylogger capturing only alphabets and capturing all keys*** |
+
+| ![System info & Network info](https://github.com/anishvedant/Hidden-Keylogger/blob/main/Screenshots/System%20info%20%26%20Network%20info.png)
+|:--:| 
+| ***System info & Network info*** |
+
+
 # Limitations 
 
 * Handling of Keystrokes: Currently, the combination of keystrokes with Ctrl is not handled properly.
